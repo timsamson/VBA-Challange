@@ -39,6 +39,9 @@ On Error Resume Next
         ActiveWorkbook.Worksheets(i).Cells(1, 10).Value = "Yearly_Change"
         ActiveWorkbook.Worksheets(i).Cells(1, 11).Value = "Percent_Change"
         
+        'Set column to Currency
+        Columns("K2:K").NumberFormat = "$#,##0.00"
+        
         ActiveWorkbook.Worksheets(i).Cells(1, 15).Value = "Ticker"
         ActiveWorkbook.Worksheets(i).Cells(1, 16).Value = "Value"
         ActiveWorkbook.Worksheets(i).Cells(2, 14).Value = "Greatest % Increase"
@@ -47,7 +50,10 @@ On Error Resume Next
         
         Total_Volume = 0
      
-            'Beign Loop for j
+        'Auto fit Columns
+        ActiveWorkbook.Worksheets(i).Columns("A:P").AutoFit
+        
+        'Beign Loop for j
             For j = 2 To ActiveWorkbook.Worksheets(i).Cells.SpecialCells(xlCellTypeLastCell).Row
                  If ActiveWorkbook.Worksheets(i).Cells(j, 1).Value <> ActiveWorkbook.Worksheets(i).Cells(j + 1, 1).Value Then
                  
@@ -57,7 +63,8 @@ On Error Resume Next
                     ActiveWorkbook.Worksheets(i).Cells(k, 11).Value = Cells(k, 10).Value / open_price
                     
                     'Make cell style %
-                        ActiveWorkbook.Worksheets(i).Cells(k, 10).Style = "Percent"
+                        ActiveWorkbook.Worksheets(i).Cells(k, 10).Style = "Currency"
+                        ActiveWorkbook.Worksheets(i).Cells(k, 11).Style = "Percent"
                         
                         'Color Cells based on postitive ot negetive yearly change
                         If ActiveWorkbook.Worksheets(i).Cells(k, 10).Value > 0 Then
@@ -98,16 +105,18 @@ On Error Resume Next
                 If ActiveWorkbook.Worksheets(i).Cells(t, 11).Value = ActiveWorkbook.Worksheets(i).Cells(2, 16).Value Then
                     ActiveWorkbook.Worksheets(i).Cells(2, 15).Value = ActiveWorkbook.Worksheets(i).Cells(t, 9).Value
                     ' style cell
-                    ActiveWorkbook.Worksheets(i).Cells(2, 15).Style = "Percent"
+                    ActiveWorkbook.Worksheets(i).Cells(2, 16).Style = "Percent"
                 ElseIf ActiveWorkbook.Worksheets(i).Cells(t, 11).Value = ActiveWorkbook.Worksheets(i).Cells(3, 16).Value Then
                     ActiveWorkbook.Worksheets(i).Cells(3, 15).Value = ActiveWorkbook.Worksheets(i).Cells(t, 9).Value
                     ' style cell
-                    ActiveWorkbook.Worksheets(i).Cells(2, 15).Style = "Percent"
+                    ActiveWorkbook.Worksheets(i).Cells(3, 16).Style = "Percent"
                 ElseIf ActiveWorkbook.Worksheets(i).Cells(t, 12).Value = ActiveWorkbook.Worksheets(i).Cells(4, 16).Value Then
                     ActiveWorkbook.Worksheets(i).Cells(4, 15).Value = ActiveWorkbook.Worksheets(i).Cells(t, 9).Value
+                    ' style cell
+                    ActiveWorkbook.Worksheets(i).Cells(4, 16).NumberFormat = "0"
                 End If
             Next t
-        'Reste the k value for next sheet
+        'Reset the k value for next sheet
             k = 2
             
   Next i
