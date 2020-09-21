@@ -19,6 +19,7 @@ Sub Wallstreet():
     Dim close_price As Double
     
 
+
     'Set intiial values
     k = 2
     ws_count = ActiveWorkbook.Worksheets.Count
@@ -86,14 +87,18 @@ Sub Wallstreet():
             ' compare value to findgreatest values in set (Increase, Decrease, Percentage)
             ActiveWorkbook.Worksheets(i).Cells(2, 16).Value = WorksheetFunction.Max(Worksheets(i).Range("K2:K" & ActiveWorkbook.Worksheets(i).Range("K1").CurrentRegion.Rows.Count))
             ActiveWorkbook.Worksheets(i).Cells(3, 16).Value = WorksheetFunction.Min(Worksheets(i).Range("K2:K" & ActiveWorkbook.Worksheets(i).Range("K1").CurrentRegion.Rows.Count))
-            ActiveWorkbook.Worksheets(i).Cells(3, 16).Value = WorksheetFunction.Max(Worksheets(i).Range("J2:J" & ActiveWorkbook.Worksheets(i).Range("K1").CurrentRegion.Rows.Count))
+            ActiveWorkbook.Worksheets(i).Cells(4, 16).Value = WorksheetFunction.Max(Worksheets(i).Range("L2:L" & ActiveWorkbook.Worksheets(i).Range("K1").CurrentRegion.Rows.Count))
             
             'Find Ticker for Min and Max Values
             For t = 2 To ActiveWorkbook.Worksheets(i).Range("K1").CurrentRegion.Rows.Count
                 If ActiveWorkbook.Worksheets(i).Cells(t, 11).Value = ActiveWorkbook.Worksheets(i).Cells(2, 16).Value Then
                     ActiveWorkbook.Worksheets(i).Cells(2, 15).Value = ActiveWorkbook.Worksheets(i).Cells(t, 9).Value
+                    ' style cell
+                    ActiveWorkbook.Worksheets(i).Cells(2, 15).Style = "Percent"
                 ElseIf ActiveWorkbook.Worksheets(i).Cells(t, 11).Value = ActiveWorkbook.Worksheets(i).Cells(3, 16).Value Then
                     ActiveWorkbook.Worksheets(i).Cells(3, 15).Value = ActiveWorkbook.Worksheets(i).Cells(t, 9).Value
+                    ' style cell
+                    ActiveWorkbook.Worksheets(i).Cells(2, 15).Style = "Percent"
                 ElseIf ActiveWorkbook.Worksheets(i).Cells(t, 11).Value = ActiveWorkbook.Worksheets(i).Cells(4, 16).Value Then
                     ActiveWorkbook.Worksheets(i).Cells(4, 15).Value = ActiveWorkbook.Worksheets(i).Cells(t, 9).Value
                 End If
