@@ -15,8 +15,11 @@ Notes on script.
   Sample_data_script.bas used while working on debugging and creating the initial script.
   VBA_Wallstreet_Loop.bas This is the working version of the script. (please use for grading)
   
- Screenshots included
+ Screenshots included:
+ 
 2014_VBA_WS.png
+
 2015_VBA_WS.png
+
 2016_VBA_WS.png
 
