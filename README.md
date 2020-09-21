@@ -3,12 +3,12 @@
 VBA script created to read through exsisitng stock data to extract the diiference beween the opening and closing prices for the stock for the year. 
 Additional steps to find the stock on each worksheet with the highest and lowest change in rate and greatest trading volume.
 
-<b>Notes on script.
-  On Error needed to be added to the script to combat and error 6 messsage on line 56 of the code, this was due to divisible by 0 error when teh script ran near teh end of each worksheet.</b>
+<b>Notes on script.</b>
+<ul><li>On Error needed to be added to the script to combat and error 6 messsage on line 56 of the code, this was due to divisible by 0 error when teh script ran near the end of each worksheet.</li>
   
-  Ideally the Total_Volume integer would like to  have been set to a double but was changed to variant as there is a know issue with Mac on excel and this was the only workaround i could find that provided consisitent results. 
+<li>Ideally the Total_Volume integer would like to  have been set to a double but was changed to variant as there is a know issue with Mac on excel and this was the only workaround i could find that provided consisitent results.</li></UL> 
   
-  BOTH of these changes may not be required if running on a  windows based machine. 
+<b>BOTH of these changes may not be required if running on a  windows based machine. </b>
   
 <h3>Scripts (located in script folder):</h3>
   
