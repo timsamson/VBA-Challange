@@ -12,8 +12,10 @@ Additional steps to find the stock on each worksheet with the highest and lowest
   
 <h3>Scripts (located in script folder):</h3>
   
+  <ul><li> MyMacro_VBA_Wallstreet.vbs <b> (please use for grading)</b></li></ul>
+  Working Files:
   <ul><li>Sample_data_script.bas used while working on debugging and creating the initial script.</li>
-  <li>VBA_Wallstreet_Loop.bas This is the working version of the script.<b> (please use for grading)</b></li>
+  <li>VBA_Wallstreet_Loop.bas This is the working version of the script.</li></ul>
   
 <h3>Screenshots (Located in Screenshot Folder):</h3>
  
